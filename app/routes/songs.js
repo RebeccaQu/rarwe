@@ -37,6 +37,6 @@ songs.get('content').pushObject(pretender);
 
 export default Ember.Route.extend({
   model: function() {
-    return songs;
+    return this.modelFor('bands.band');
   }
 });
