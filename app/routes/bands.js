@@ -9,10 +9,6 @@ var Band = Ember.Object.extend({
   })
 });
 
-var ledZeppelin = Band.create({ name: 'Led Zeppelin', songs: [blackDog] });
-var pearlJam = Band.create({ name: 'Pearl Jam', songs: [yellowLedbetter, daughter] });
-var fooFighters = Band.create({ name: 'Foo Fighters', songs: [pretender] });
-
 // SONG OBJECT
 var Song = Ember.Object.extend({
   title: '',
@@ -20,6 +16,14 @@ var Song = Ember.Object.extend({
   rating: 0
 });
 
+// BANDS COLLECTION OBJECT
+var BandsCollection = Ember.Object.extend({
+  content: [],
+  sortProperties: ['name:desc'],
+  sortedContent: Ember.computed.sort('content', 'sortProperties')
+});
+
+// Seeds
 var blackDog = Song.create({
   title: 'Black Dog',
   band: 'Led Zeppelin',
@@ -36,7 +40,7 @@ var daughter = Song.create({
   title: 'Daughter',
   band: 'Pearl Jam',
   rating: 5
-})
+});
 
 var pretender = Song.create({
   title: 'The Pretender',
@@ -44,12 +48,9 @@ var pretender = Song.create({
   rating: 2
 });
 
-// BANDS COLLECTION OBJECT
-var BandsCollection = Ember.Object.extend({
-  content: [],
-  sortProperties: ['name:desc'],
-  sortedContent: Ember.computed.sort('content', 'sortProperties')
-});
+var ledZeppelin = Band.create({ name: 'Led Zeppelin', songs: [blackDog] });
+var pearlJam = Band.create({ name: 'Pearl Jam', songs: [yellowLedbetter, daughter] });
+var fooFighters = Band.create({ name: 'Foo Fighters', songs: [pretender] });
 
 var bands = BandsCollection.create();
 bands.get('content').pushObjects([ledZeppelin, pearlJam, fooFighters]);
