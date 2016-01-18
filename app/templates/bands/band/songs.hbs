@@ -3,10 +3,12 @@
   <div class="list-group songs">
 
     {{#if canCreateSong}}
-      <div class="list-group-item">
-        {{input type="text" class="new-song" placeholder="New song" value=title}}
-        <button class="btn btn-primary btn-sm new-song-button" {{action "createSong"}}>Add</button>
-      </div>
+      <form class="new-song-form" {{action "createSong" on="submit"}}>
+        <div class="list-group-item">
+          {{input type="text" class="new-song" placeholder="New song" value=title}}
+          <button class="btn btn-primary btn-sm new-song-button" {{action "createSong"}}>Add</button>
+        </div>
+      </form>
     {{/if}}
 
     {{#each model.songs as |song|}}
