@@ -2,5 +2,5 @@
 export default Ember.Object.extend({
   title: '',
   band: null,
-  rating: 0
+  rating: 0,
 });
