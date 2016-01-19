@@ -4,8 +4,4 @@ export default DS.Model.extend({
   name: DS.attr('string'),
   description: DS.attr(),
   songs: DS.hasMany('songs'),
-
-  slug: Ember.computed('name', function() {
-    return this.get('name').dasherize();
-  }),
 });
