@@ -1,13 +1,9 @@
 import Ember from 'ember';
-// import StarRatingComponent from '../components/star-rating';
-//
-// var stars = StarRatingComponent.create ({ classNames: ['star-rating-widget'] });
-// starts.get('classNames');
 
 export default Ember.Component.extend({
+
   tagName: 'div',
   classNames: ['rating-panel'],
-
 
   stars: Ember.computed('rating', 'maxRating', function() {
     var fullStars = this.starRange(1, this.get('rating'), 'full');
